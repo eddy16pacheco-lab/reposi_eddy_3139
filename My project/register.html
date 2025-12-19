@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Control Obra</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-header">
+            <a href="index.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Volver al inicio
+            </a>
+            <div class="auth-logo">
+                <h1>CONTROL OBRA</h1>
+                <p>Ingeniería y Construcción</p>
+            </div>
+        </div>
+
+        <div class="auth-box">
+            <h2>Crear Cuenta</h2>
+            <p>Regístrate para acceder a todos nuestros servicios</p>
+            
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fas fa-user"></i> Nombre
+                        </label>
+                        <input type="text" id="name" placeholder="Tu nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastname">
+                            <i class="fas fa-user"></i> Apellido
+                        </label>
+                        <input type="text" id="lastname" placeholder="Tu apellido" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Email
+                    </label>
+                    <input type="email" id="email" placeholder="tu@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">
+                        <i class="fas fa-phone"></i> Teléfono
+                    </label>
+                    <input type="tel" id="phone" placeholder="+56 9 1234 5678">
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">
+                        <i class="fas fa-building"></i> Empresa (Opcional)
+                    </label>
+                    <input type="text" id="company" placeholder="Nombre de tu empresa">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Contraseña
+                    </label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                    <span class="show-password" onclick="togglePassword('password')">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                    <small>Mínimo 8 caracteres</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        <i class="fas fa-lock"></i> Confirmar Contraseña
+                    </label>
+                    <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                    <span class="show-password" onclick="togglePassword('confirmPassword')">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userType">
+                        <i class="fas fa-briefcase"></i> Tipo de Usuario
+                    </label>
+                    <select id="userType" required>
+                        <option value="">Seleccionar tipo</option>
+                        <option value="cliente">Cliente</option>
+                        <option value="constructor">Constructor</option>
+                        <option value="arquitecto">Arquitecto</option>
+                        <option value="ingeniero">Ingeniero</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <span>Acepto los <a href="#" class="terms-link">Términos y Condiciones</a> y la <a href="#" class="terms-link">Política de Privacidad</a></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn-primary btn-auth">
+                    <i class="fas fa-user-plus"></i> Crear Cuenta
+                </button>
+                
+                <div class="auth-divider">
+                    <span>¿Ya tienes cuenta?</span>
+                </div>
+                
+                <a href="login.html" class="btn-secondary btn-auth">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </a>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Tu información está protegida con encriptación SSL</p>
+            </div>
+        </div>
+        
+        <div class="auth-info">
+            <h3>Beneficios de registrarte</h3>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Seguimiento en tiempo real de proyectos</li>
+                <li><i class="fas fa-check-circle"></i> Documentos técnicos y planos digitales</li>
+                <li><i class="fas fa-check-circle"></i> Alertas y notificaciones personalizadas</li>
+                <li><i class="fas fa-check-circle"></i> Reportes y estadísticas avanzadas</li>
+                <li><i class="fas fa-check-circle"></i> Soporte técnico prioritario</li>
+                <li><i class="fas fa-check-circle"></i> Acceso a capacitaciones exclusivas</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('La contraseña debe tener al menos 8 caracteres');
+                return;
+            }
+            
+            const userData = {
+                name: document.getElementById('name').value,
+                lastname: document.getElementById('lastname').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                password: password,
+                userType: document.getElementById('userType').value,
+                registrationDate: new Date().toISOString()
+            };
+            
+            if (registerUser(userData)) {
+                alert('¡Cuenta creada exitosamente! Ahora puedes iniciar sesión.');
+                window.location.href = 'login.html';
+            }
+        });
+
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.parentNode.querySelector('.show-password i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Verificar si ya está logueado
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            if (user) {
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Obra - Ingeniería y Construcción</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo-controlobra.png" alt="Control Obra">
+                <span>CONTROL OBRA</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li class="auth-links">
+                    <a href="login.html" class="btn-login">Iniciar Sesión</a>
+                    <a href="register.html" class="btn-register">Registrarse</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Especialistas en Control y Gestión de Obras</h1>
+            <p>Soluciones integrales en ingeniería y construcción para proyectos residenciales, industriales y de infraestructura.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn-primary">Contactar</a>
+                <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section class="services" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-hard-hat"></i>
+                <h3>Control de Obra</h3>
+                <p>Supervisión integral de proyectos de construcción, asegurando cumplimiento de plazos, costos y calidad.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Programación y Planificación</h3>
+                <p>Desarrollo de cronogramas, gestión de ruta crítica y control de avances con herramientas especializadas.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-clipboard-check"></i>
+                <h3>Asesorías Técnicas</h3>
+                <p>Apoyo en métodos constructivos, optimización de recursos y soluciones a problemas en obra.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-file-contract"></i>
+                <h3>Gestión de Contratos</h3>
+                <p>Administración contractual, mediciones, certificaciones y relaciones con subcontratistas.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-university"></i>
+                <h3>Inspección Técnica (ITO)</h3>
+                <p>Servicio para bancos e instituciones financieras para verificar estado y avance de proyectos.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-calculator"></i>
+                <h3>Levantamiento de Quantities</h3>
+                <p>Cálculos detallados de metrados para presupuestos y control de cantidades de obra.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section class="projects" id="proyectos">
+        <h2>Tipos de Proyectos</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00" alt="Edificación Residencial">
+                <h3>Edificación Residencial</h3>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab" alt="Proyectos Industriales">
+                <h3>Proyectos Industriales</h3>
+            </div>
+            <div class="project-card">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5" alt="Obra Pública">
+                <h3>Obra Pública</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section class="contact" id="contacto">
+        <h2>Contacto</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Vitacura 2771, Of. 302, Las Condes, Santiago, Chile</p>
+                <p><i class="fas fa-phone"></i> +56 9 8765 9095</p>
+                <p><i class="fas fa-envelope"></i> contacto@controlobra.cl</p>
+                <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 18:00 hrs</p>
+            </div>
+            <div class="contact-form">
+                <h3>Envíanos un Mensaje</h3>
+                <form id="contactForm">
+                    <input type="text" placeholder="Nombre" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Teléfono">
+                    <textarea placeholder="Mensaje" rows="5" required></textarea>
+                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>CONTROL OBRA</h3>
+                <p>Especialistas en Ingeniería y Construcción</p>
+            </div>
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#contacto">Contacto</a>
+                <a href="login.html">Área Clientes</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Control Obra. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Menú hamburguesa
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensaje enviado correctamente. Nos contactaremos pronto.');
+            this.reset();
+        });
+
+        // Verificar si hay usuario logueado
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            const authLinks = document.querySelector('.auth-links');
+            
+            if (user) {
+                authLinks.innerHTML = `
+                    <span class="welcome-user">Bienvenido, ${user.name}</span>
+                    <a href="dashboard.html" class="btn-dashboard">Dashboard</a>
+                    <a href="#" class="btn-logout" onclick="logout()">Cerrar Sesión</a>
+                `;
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
