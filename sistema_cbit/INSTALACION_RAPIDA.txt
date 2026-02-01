@@ -1,0 +1,151 @@
+═══════════════════════════════════════════════════════════════════
+  SISTEMA DE GESTIÓN CBIT - GUÍA DE INSTALACIÓN RÁPIDA
+═══════════════════════════════════════════════════════════════════
+
+PASO 1: INSTALAR XAMPP (o WAMP/LAMP)
+────────────────────────────────────────────────────────────────────
+1. Descargar XAMPP desde: https://www.apachefriends.org/
+2. Instalar XAMPP en C:\xampp (Windows) o /opt/lampp (Linux)
+3. Abrir el Panel de Control de XAMPP
+4. Iniciar los servicios "Apache" y "MySQL"
+
+PASO 2: CREAR LA BASE DE DATOS
+────────────────────────────────────────────────────────────────────
+1. Abrir el navegador y ir a: http://localhost/phpmyadmin
+2. Hacer clic en "Nuevo" (New) en el panel izquierdo
+3. Nombre de la base de datos: db_sistema_web_cbit
+4. Cotejamiento: utf8mb4_uca1400_ai_ci
+5. Hacer clic en "Crear"
+6. Seleccionar la base de datos creada
+7. Hacer clic en "Importar" (Import)
+8. Seleccionar el archivo: db_cbit.sql
+9. Hacer clic en "Continuar" (Go)
+10. Esperar a que termine la importación
+
+PASO 3: INSTALAR EL SISTEMA
+────────────────────────────────────────────────────────────────────
+1. Copiar la carpeta completa "sistema_cbit" a:
+   
+   Windows (XAMPP): C:\xampp\htdocs\sistema_cbit
+   Windows (WAMP):  C:\wamp64\www\sistema_cbit
+   Linux (LAMP):    /var/www/html/sistema_cbit
+   Mac (XAMPP):     /Applications/XAMPP/htdocs/sistema_cbit
+
+PASO 4: CONFIGURAR LA CONEXIÓN (Opcional)
+────────────────────────────────────────────────────────────────────
+Solo si tu MySQL tiene contraseña:
+
+1. Abrir el archivo: config/database.php
+2. Buscar la línea: private $password = "";
+3. Cambiar por tu contraseña: private $password = "tu_contraseña";
+4. Guardar el archivo
+
+PASO 5: CONFIGURAR LA URL DE LA API
+────────────────────────────────────────────────────────────────────
+1. Abrir el archivo: assets/js/api.js
+2. Buscar la línea: const API_BASE_URL = 'http://localhost/sistema_cbit/api';
+3. Si instalaste en un subdirectorio diferente, cambiar la ruta
+4. Guardar el archivo
+
+PASO 6: ACCEDER AL SISTEMA
+────────────────────────────────────────────────────────────────────
+1. Abrir el navegador web (Chrome, Firefox, Edge)
+2. Ir a: http://localhost/sistema_cbit/index_new.html
+3. El sistema debería cargar y mostrar el dashboard
+
+═══════════════════════════════════════════════════════════════════
+  VERIFICACIÓN DE INSTALACIÓN
+═══════════════════════════════════════════════════════════════════
+
+✓ Apache está ejecutándose
+✓ MySQL está ejecutándose
+✓ Base de datos "db_sistema_web_cbit" creada
+✓ Tablas importadas correctamente
+✓ Carpeta "sistema_cbit" en htdocs/www
+✓ Archivo config/database.php configurado
+✓ Página carga en http://localhost/sistema_cbit/index_new.html
+
+═══════════════════════════════════════════════════════════════════
+  SOLUCIÓN DE PROBLEMAS COMUNES
+═══════════════════════════════════════════════════════════════════
+
+PROBLEMA: "No se puede conectar a la base de datos"
+SOLUCIÓN: 
+  - Verificar que MySQL esté ejecutándose en XAMPP
+  - Verificar credenciales en config/database.php
+  - Verificar que la base de datos exista en phpMyAdmin
+
+PROBLEMA: "404 Not Found" al cargar la página
+SOLUCIÓN:
+  - Verificar que la carpeta esté en htdocs/www
+  - Verificar la URL: http://localhost/sistema_cbit/index_new.html
+  - Verificar que Apache esté ejecutándose
+
+PROBLEMA: Los datos no se cargan en el dashboard
+SOLUCIÓN:
+  - Presionar F12 para abrir la consola del navegador
+  - Verificar si hay errores en la consola
+  - Verificar que la URL de la API sea correcta en assets/js/api.js
+  - Verificar que las tablas tengan datos
+
+PROBLEMA: "Access-Control-Allow-Origin" error
+SOLUCIÓN:
+  - Verificar que el archivo config/cors.php exista
+  - Acceder directamente a: http://localhost/sistema_cbit/api/dashboard.php
+  - Si muestra JSON, la API funciona correctamente
+
+═══════════════════════════════════════════════════════════════════
+  INSERTAR DATOS DE PRUEBA
+═══════════════════════════════════════════════════════════════════
+
+Para probar el sistema con datos de ejemplo:
+
+1. Ir a phpMyAdmin: http://localhost/phpmyadmin
+2. Seleccionar la base de datos: db_sistema_web_cbit
+3. Hacer clic en "SQL"
+4. Copiar y pegar estos comandos:
+
+-- Insertar persona
+INSERT INTO persona (nombre, apellido, cedula, telefono) 
+VALUES ('Juan', 'Pérez', '12345678', '04121234567');
+
+-- Insertar usuario
+INSERT INTO usuario (id_persona, nombre_usuario, contrasena_usuario, correo, estado, roles) 
+VALUES (1, 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin@cbit.org', 'Activo', 'Administrador');
+
+-- Insertar espacio
+INSERT INTO espacio (nombre) VALUES ('Sala de Computación 1');
+
+-- Insertar actividad
+INSERT INTO actividad (nombre) VALUES ('Clase de Programación');
+
+-- Insertar categoría
+INSERT INTO categoria (nombre) VALUES ('Computadoras');
+
+-- Insertar marca
+INSERT INTO marca (nombre) VALUES ('Dell');
+
+-- Insertar ubicación
+INSERT INTO ubicacion_fisica (nombre) VALUES ('Edificio A - Piso 2');
+
+5. Hacer clic en "Continuar"
+6. Recargar la página del sistema
+
+═══════════════════════════════════════════════════════════════════
+  CREDENCIALES DE PRUEBA
+═══════════════════════════════════════════════════════════════════
+
+Usuario: admin
+Contraseña: password
+
+(Nota: El sistema de login aún no está implementado en el frontend,
+pero las credenciales están listas para cuando se implemente)
+
+═══════════════════════════════════════════════════════════════════
+  CONTACTO Y SOPORTE
+═══════════════════════════════════════════════════════════════════
+
+Para más información, consultar el archivo README.md
+
+Sistema desarrollado para CBIT
+Versión 1.0 - 2024
